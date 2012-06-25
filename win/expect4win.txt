@@ -1,0 +1,69 @@
+Expect for Windows (included as of TDK 3.1) is a port of the Unix Expect
+extension to the Windows platform. It provides control of Windows
+console-based applications at the true console level (the Windows
+equivalent of a Unix tty). It is designed to work with Tcl 8.4+ and is
+stubs-enabled, allowing it to be used for deployment in TclApp.
+
+As Expect is an extension written with many core Unix fundamentals in
+mind, and Windows differs in many design respects, there are differences
+in the Expect for Windows implementation. You can refer to the regular
+Expect documentation for general functionality (on ASPN
+<http://aspn.activestate.com/ASPN/docs/ActiveTcl/expect/expect.1.html>
+or in the ActiveTcl documentation), but keep the following restrictions
+in mind:
+
+The following command does not exist:
+
+    - [exp_interact]: is not currently implemented.
+
+The following commands exist, but do nothing and return an error:
+
+    - [exp_fork]: not applicable on Windows.
+    - [exp_overlay]: not applicable on Windows.
+    - [exp_disconnect]: not applicable on Windows.
+    - [exp_system]: use |[exec]| instead.
+    - [exp_open]: detaching to Tcl not enabled.
+
+The following commands are modified:
+
+    - [exp_close]: does not support the |-slave| option.
+    - [exp_send_*]: does not support the |-break| flag, nor does it
+      implement a parser for VT100 codes for special keypress codes such
+      as "arrow up", F1, Home, etc.
+    - [exp_spawn]: doesn't have the |-ignore| or |-trap| options.
+    - [exp_spawn]: has 2 new options, |-environment| and |-directory|.
+      |-environment| takes a list of name/value pairs in the form
+      |[array get]| would return; |-directory| sets the starting
+      directory for the slave.
+    - [exp_stty]: doesn't do redirection nor does it accept the rows
+      or columns options.
+
+The following behaviors are limited:
+
+    - There is no creation of tty channels when they aren't already
+      given to the application. This is not applicable on Unix; for
+      example, if |CreateFile("CONOUT$")| fails when asking for the
+      existing tty channel, there is no recourse in the generic layer to
+      create one. Only a single console window is allowed per process on
+      Windows. This affects |[exp_send_tty]| and |[expect_tty]|, and is
+      a prerequisite for enabling |[exp_interact]|.
+    - Signal manipulation beyond the seven signals abstracted via ANSI's
+      signal.h is not supported, nor are windows-specific ones such as
+      |CTRL_SHUTDOWN_EVENT|. Also, |[exp_wait]| is limited in the same
+      way for signal exits, as is the core's |Tcl_WaitPid()| which it uses.
+
+The following behaviors are not available at this time:
+
+    - The Expect clib is not available at this time.
+    - An Expect channel can not be moved to a different thread with
+      |[thread::transfer]|; this is a limitation of Tcl's channel API.
+
+For completeness, the following commands are provided to the interpreter:
+
+
+ expect exp_close exp_continue exp_disconnect exp_exit exp_fork exp_getpid
+ exp_inter_return exp_internal exp_interpreter exp_log_file exp_log_user
+ exp_match_max exp_open exp_overlay exp_parity exp_pid exp_remove_nulls
+ exp_send exp_send_error exp_send_log exp_send_tty exp_send_user exp_sleep
+ exp_spawn exp_strace exp_stty exp_system exp_timestamp exp_trap exp_version
+ exp_wait

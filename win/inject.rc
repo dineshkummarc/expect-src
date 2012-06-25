@@ -1,0 +1,65 @@
+/* ----------------------------------------------------------------------------
+ * inject.rc --
+ *
+ *	Resource script for use with the resource compiler.
+ * 
+ * ----------------------------------------------------------------------------
+ *
+ * Written by: Don Libes, libes@cme.nist.gov, NIST, 12/3/90
+ * 
+ * Design and implementation of this program was paid for by U.S. tax
+ * dollars.  Therefore it is public domain.  However, the author and NIST
+ * would appreciate credit if this program or parts of it are used.
+ * 
+ * Copyright (c) 1997 Mitel Corporation
+ *	work by Gordon Chaffee <chaffee@bmrc.berkeley.edu> for the WinNT port.
+ *
+ * Copyright (c) 2001-2002 Telindustrie, LLC
+ * Copyright (c) 2003 ActiveState Corporation
+ *	work by David Gravereaux <davygrvy@pobox.com> for any Win32 OS.
+ *
+ * ----------------------------------------------------------------------------
+ * URLs:    http://expect.nist.gov/
+ *	    http://expect.sf.net/
+ *	    http://bmrc.berkeley.edu/people/chaffee/expectnt.html
+ * ----------------------------------------------------------------------------
+ * RCS: @(#) $Id: inject.rc,v 1.1.2.2 2003/08/26 20:46:54 davygrvy Exp $
+ * ----------------------------------------------------------------------------
+ */
+
+#include <winver.h>
+#include "exp.h"
+
+VS_VERSION_INFO VERSIONINFO
+    FILEVERSION	    1,0,0,0
+    PRODUCTVERSION  EXP_MAJOR_VERSION,EXP_MINOR_VERSION,EXP_RELEASE_LEVEL,EXP_RELEASE_SERIAL
+    FILEFLAGSMASK   VS_FFI_FILEFLAGSMASK
+
+#if defined(DEBUG)
+    FILEFLAGS	    VS_FF_DEBUG
+#else
+    FILEFLAGS	    0x0L
+#endif
+    FILEOS	    VOS__WINDOWS32    /* open to all */
+    FILETYPE	    VFT_DLL
+    FILESUBTYPE     VFT2_UNKNOWN
+{
+    BLOCK "StringFileInfo"
+    {
+        BLOCK "040904b0" /* LANG_ENGLISH/SUBLANG_ENGLISH_US, Unicode CP */
+        {
+            VALUE "FileDescription",	"Expect's console event injector tool that sits inside the slave process\0"
+            VALUE "OriginalFilename",	"injector.dll\0"
+            VALUE "CompanyName",	"ActiveState Corporation\0"
+            VALUE "FileVersion",	"1.0\0"
+            VALUE "LegalCopyright",	"Copyright \251 2003 by ActiveState Corporation\0"
+            VALUE "ProductName",	"Expect " EXP_VERSION " for Win32\0"
+            VALUE "ProductVersion",	EXP_PATCH_LEVEL "\0"
+	    VALUE "Comments",		"Expect was written for Unix by Don Libes at NIST.\r\n" "David Gravereaux wrote the Win32 port.\0"
+        }
+    }
+    BLOCK "VarFileInfo"
+    {
+        VALUE "Translation", 0x409, 1200
+    }
+}

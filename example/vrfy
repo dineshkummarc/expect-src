@@ -1,0 +1,42 @@
+package require Expect 6.0
+
+# separate address into user and host
+regexp (.*)@(.*) $argv ignore user host
+
+catch {console show}
+set exp::nt_debug 1
+log_user 0
+#exp_internal 1
+set timeout 10
+
+# host might be an mx record, convert to a real host via nslookup
+spawn nslookup
+expect "> "
+send "set query=mx\r"
+expect "> "
+send "$host\r"
+expect {
+    "No mail exchanger" {}
+    -re {mail exchanger = (.*)\r\n} {
+	set host $expect_out(1,string)
+    }
+}
+send "exit\r"
+expect eof
+
+spawn telnet $host smtp
+expect "220 *"
+send "vrfy $user\r"
+expect	{
+    "250" {
+	send_user "GOOD\n"
+    }
+    "550" {
+	send_user "BAD\n"
+    }
+    -re {502 (.*)$} {
+	send_user "$expect_out(1,string)\n"
+    }
+}
+send "quit\r"
+expect eof

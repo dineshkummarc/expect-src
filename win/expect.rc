@@ -1,0 +1,86 @@
+/* ----------------------------------------------------------------------------
+ * expect.rc --
+ *
+ *	Version Resource Script.
+ *
+ * ----------------------------------------------------------------------------
+ *
+ * Written by: Don Libes, libes@cme.nist.gov, NIST, 12/3/90
+ * 
+ * Design and implementation of this program was paid for by U.S. tax
+ * dollars.  Therefore it is public domain.  However, the author and NIST
+ * would appreciate credit if this program or parts of it are used.
+ * 
+ * Copyright (c) 2001-2002 Telindustrie, LLC
+ * Copyright (c) 2003 ActiveState Corporation
+ *	Work by David Gravereaux <davygrvy@pobox.com> for any Win32 OS.
+ *	Based on work by Gordon Chaffee <chaffee@bmrc.berkeley.edu>
+ *
+ * ----------------------------------------------------------------------------
+ * URLs:    http://expect.nist.gov/
+ *	    http://expect.sf.net/
+ *	    http://bmrc.berkeley.edu/people/chaffee/expectnt.html
+ * ----------------------------------------------------------------------------
+ * RCS: @(#) $Id: expect.rc,v 1.1.2.1.2.5 2002/06/18 22:51:31 davygrvy Exp $
+ * ----------------------------------------------------------------------------
+ */
+
+#include <winver.h>
+#include <winnt.h>
+#include "exp.h"
+
+#if DEBUG && !UNCHECKED
+#define SUFFIX_DEBUG	    "g"
+#else
+#define SUFFIX_DEBUG	    ""
+#endif
+
+#define SUFFIX		    SUFFIX_DEBUG
+
+
+LANGUAGE LANG_ENGLISH, SUBLANG_DEFAULT
+
+VS_VERSION_INFO VERSIONINFO
+    FILEVERSION	    EXP_MAJOR_VERSION, EXP_MINOR_VERSION, EXP_RELEASE_LEVEL, EXP_RELEASE_SERIAL
+    PRODUCTVERSION  EXP_MAJOR_VERSION, EXP_MINOR_VERSION, EXP_RELEASE_LEVEL, EXP_RELEASE_SERIAL
+    FILEFLAGSMASK   0x3fL
+#if defined(DEBUG)
+    FILEFLAGS 	    VS_FF_DEBUG
+#elif EXP_RELEASE_LEVEL != TCL_FINAL_RELEASE
+    FILEFLAGS 	    VS_FF_PRERELEASE
+#else
+    FILEFLAGS 	    0x0L
+#endif
+    FILEOS 	    VOS__WINDOWS32
+    FILETYPE 	    VFT_DLL
+    FILESUBTYPE	    0x0L
+    {
+	BLOCK "StringFileInfo"
+	{
+	    BLOCK "040904b0" /* LANG_ENGLISH/SUBLANG_ENGLISH_US, Unicode CP */
+	    {
+		VALUE "FileDescription",    "Expect Tcl extension DLL"
+		VALUE "OriginalFilename",   "expect" STRINGIFY(JOIN(EXP_MAJOR_VERSION,EXP_MINOR_VERSION)) SUFFIX ".dll"
+		VALUE "CompanyName",	    "ActiveState Corporation"
+		VALUE "FileVersion",	    EXP_PATCH_LEVEL
+		VALUE "LegalCopyright",	    "Copyright \251 2003-2004 ActiveState Corporation"
+		VALUE "ProductName",	    "Expect " EXP_VERSION " for Win32"
+		VALUE "ProductVersion",	    EXP_PATCH_LEVEL
+		VALUE "Comments",	    "Expect was written for Unix by Don Libes at NIST.\r\n" "David Gravereaux wrote the Win32 port."
+	    }
+	}
+	BLOCK "VarFileInfo"
+	{
+	    VALUE "Translation", 0x409, 1200
+	}
+    }
+
+
+// Store our injector DLL inside us...  bwaa ha ha!  I'm mad I tell ya!
+//
+//INJECTOR 256 ".\\Release\\injector.dll"
+
+// Include the Message Table that lists the error codes and textual replies.
+// This is output from the message compiler and found in the temp build directory.
+//
+#include "expWinErr.rc"

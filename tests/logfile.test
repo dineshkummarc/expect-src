@@ -1,0 +1,30 @@
+# Commands covered:  log_file
+
+if {[lsearch [namespace children] ::tcltest] == -1} {
+    package require tcltest 2.1
+    namespace import -force ::tcltest::test
+}
+
+::tcltest::loadTestedCommands
+
+test logfile-1.1 {basic logfile} {
+    set filename logfile.[pid]
+    exp_log_file $filename
+    exp_send "via send"
+    exp_send_user "via send_user"
+    exp_send_error "via send_stdout"
+    if {[info exists ::tty_spawn_id]} {
+	send_tty "via send_tty"
+    }
+    exp_send_log "via send_log"
+    exp_log_file
+    set fid [open $filename]
+    gets $fid buffer
+    close $fid
+    ::tcltest::removeFile $filename
+    # verify everything but "send" is logged
+    regexp "via send_uservia send_stdout.*via send_log" $buffer
+} {1}
+
+::tcltest::cleanupTests
+return

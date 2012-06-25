@@ -1,0 +1,32 @@
+format  {TclDevKit Project File}
+fmtver  2.0
+fmttool {TclDevKit TclApp} 3.0
+
+########
+#####
+###
+##
+#
+
+App/Code               {}
+App/Package            {}
+Package                cmdline
+Path                   {Relativeto {@demodir@/Expect}}
+Path                   {File {@demodir@/Expect/weather.tcl}}
+Path                   Startup
+System/TempDir         {}
+System/Verbose         1
+Wrap/Compile/NoTbcload 0
+Wrap/Compile/Tcl       0
+Wrap/FSMode            {}
+Wrap/InputPrefix       {@installdir@/bin/base-expect-@arch@@exeext@}
+Wrap/Interpreter       {}
+Wrap/Merge             0
+Wrap/NoSpecials        0
+Wrap/Output            {@installdir@/weather@exeext@}
+
+#
+##
+###
+#####
+########

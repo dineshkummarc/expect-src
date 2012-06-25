@@ -1,0 +1,36 @@
+format  {TclDevKit Project File}
+fmtver  2.0
+fmttool {TclDevKit TclApp} 3.1
+
+##  Saved at : Mon Mar 01 4:46:15 PM Pacific Standard Time 2004
+##  By       : andreask@axle
+
+########
+#####
+###
+##
+#
+
+App/Code               {}
+App/Package            {}
+Package                BWidget
+Package                Expect
+Path                   {Relativeto {@demodir@/Expect}}
+Path                   {File {@demodir@/Expect/tkremotels.tcl}}
+System/TempDir         {}
+System/Verbose         0
+Wrap/Compile/NoTbcload 0
+Wrap/Compile/Tcl       0
+Wrap/FSMode            {}
+Wrap/Icon              {}
+Wrap/InputPrefix       {@installdir@/bin/base-tk-@arch@@exeext@}
+Wrap/Interpreter       {}
+Wrap/Merge             0
+Wrap/NoSpecials        0
+Wrap/Output            {@installdir@/tkremotels.exe}
+
+#
+##
+###
+#####
+########

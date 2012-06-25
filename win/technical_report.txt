@@ -1,0 +1,53 @@
+The following command does not exist:
+    exp_interact	- Has no implementation.
+
+The following commands exist, but do nothing and return an error:
+    exp_fork		- No such concept on windows.
+    exp_overlay		- No such concept on windows.
+    exp_system		- Use [exec] instead.
+    exp_open		- Detaching to Tcl not enabled, but could be.
+    exp_disconnect	- No such concept on windows.
+
+The following commands are modified:
+    - [exp_close] doesn't support the -slave option.
+    - [exp_send_*] doesn't support the -break flag, nor does it implement a
+      parser for VT100 codes for special keypress codes such as "arrow up",
+      F1, Home, etc..
+    - [exp_spawn] doesn't have the -ignore or -trap options.
+    - [exp_spawn] does have 2 new options, -environment and -directory.
+      -environment takes an even count list as name/value pairs in the form
+      'array get' would return. -directory sets the starting directory for the
+      slave.
+    - [exp_stty] doesn't do redirection nor the rows nor columns options
+
+The following behaviors are limited:
+    - No creation of tty channels when they aren't already given to the
+      application (no concept for this under Unix, ie. if CreateFile("CONOUT$")
+      fails when asking for the existing one, there is no such recourse
+      in the generic layer to create one. Only a single console window
+      is allowed per process on windows).  This affects [exp_send_tty],
+      [expect_tty] and is a prerequisite for enabling [exp_interact].
+    - signal manipulation beyond the 7 abstracted through ANSI's signal.h
+      are not supported nor are windows specific ones such as
+      CTRL_SHUTDOWN_EVENT.  Also, [exp_wait] is limited in the same way for
+      signal exits as is the core's Tcl_WaitPid() which it uses.
+
+The following behaviors are not available at this time:
+    - [exp_interact] could be made to work given the development time.
+    - The Expect clib is not available until a viable Stubs usage is created
+      using the new Stubs table that Expect is providing.
+    - An Expect channel can not be moved to a different thread with
+      [thread::transfer] and is a limitation of Tcl's channel API.
+    - $expect_out(slave,name) will not be set after [exp_spawn].  There is
+      no name for the communication link between expect and the slave as
+      seen in the (\\.\*) local namespace, thus no name can exist for the
+      slave side of the link.  This would be the name of the slave side of
+      the pty device on unix.
+
+The following commands are provided to the interp:
+ expect exp_close exp_continue exp_disconnect exp_exit exp_fork exp_getpid
+ exp_inter_return exp_internal exp_interpreter exp_log_file exp_log_user
+ exp_match_max exp_open exp_overlay exp_parity exp_pid exp_remove_nulls
+ exp_send exp_send_error exp_send_log exp_send_tty exp_send_user exp_sleep
+ exp_spawn exp_strace exp_stty exp_system exp_timestamp exp_trap exp_version
+ exp_wait

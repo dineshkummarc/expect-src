@@ -1,0 +1,27 @@
+# Commands covered:  cat (UNIX)
+
+if {[lsearch [namespace children] ::tcltest] == -1} {
+    package require tcltest 2.1
+    namespace import -force ::tcltest::test
+}
+
+::tcltest::loadTestedCommands
+
+#exp_internal -f /dev/ttyp5 0
+
+exp_log_user 0
+
+test cat-1.1 {basic cat operation} {unixExecs} {
+	exp_spawn cat -u
+	exp_send "\r"
+	set timeout 10
+	expect \r {set x 1} timeout {set x 0}
+	exp_close
+	exp_wait
+	set x
+} {1}
+
+#exp_internal 0
+
+::tcltest::cleanupTests
+return

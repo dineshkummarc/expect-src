@@ -1,0 +1,258 @@
+# Microsoft Developer Studio Generated Dependency File, included by expchantest.mak
+
+.\Mcl\CMclAutoLock.cpp : \
+	".\Mcl\CMclAutoLock.h"\
+	".\Mcl\CMclCritSec.h"\
+	".\Mcl\CMclGlobal.h"\
+	".\Mcl\CMclKernel.h"\
+	".\Mcl\CMclMutex.h"\
+	".\Mcl\CMclWaitableObject.h"\
+	
+
+.\Mcl\CMclAutoPtr.cpp : \
+	".\Mcl\CMclAutoPtr.h"\
+	".\Mcl\CMclEvent.h"\
+	".\Mcl\CMclGlobal.h"\
+	".\Mcl\CMclKernel.h"\
+	".\Mcl\CMclMutex.h"\
+	".\Mcl\CMclSemaphore.h"\
+	".\Mcl\CMclThread.h"\
+	".\Mcl\CMclWaitableObject.h"\
+	
+
+.\Mcl\CMclCritSec.cpp : \
+	".\Mcl\CMclCritSec.h"\
+	".\Mcl\CMclGlobal.h"\
+	
+
+.\Mcl\CMclEvent.cpp : \
+	".\Mcl\CMclEvent.h"\
+	".\Mcl\CMclGlobal.h"\
+	".\Mcl\CMclKernel.h"\
+	".\Mcl\CMclWaitableObject.h"\
+	
+
+.\Mcl\CMclGlobal.cpp : \
+	".\Mcl\CMclGlobal.h"\
+	
+
+.\Mcl\CMclKernel.cpp : \
+	".\Mcl\CMclAutoPtr.h"\
+	".\Mcl\CMclEvent.h"\
+	".\Mcl\CMclGlobal.h"\
+	".\Mcl\CMclKernel.h"\
+	".\Mcl\CMclMutex.h"\
+	".\Mcl\CMclSemaphore.h"\
+	".\Mcl\CMclThread.h"\
+	".\Mcl\CMclWaitableObject.h"\
+	
+
+.\Mcl\CMclMailbox.cpp : \
+	".\Mcl\CMclAutoPtr.h"\
+	".\Mcl\CMclEvent.h"\
+	".\Mcl\CMclGlobal.h"\
+	".\Mcl\CMclKernel.h"\
+	".\Mcl\CMclMailbox.h"\
+	".\Mcl\CMclMutex.h"\
+	".\Mcl\CMclSemaphore.h"\
+	".\Mcl\CMclSharedMemory.h"\
+	".\Mcl\CMclThread.h"\
+	".\Mcl\CMclWaitableCollection.h"\
+	".\Mcl\CMclWaitableObject.h"\
+	
+
+.\Mcl\CMclMonitor.cpp : \
+	".\Mcl\CMclEvent.h"\
+	".\Mcl\CMclGlobal.h"\
+	".\Mcl\CMclKernel.h"\
+	".\Mcl\CMclMonitor.h"\
+	".\Mcl\CMclSemaphore.h"\
+	".\Mcl\CMclWaitableObject.h"\
+	
+
+.\Mcl\CMclMutex.cpp : \
+	".\Mcl\CMclGlobal.h"\
+	".\Mcl\CMclKernel.h"\
+	".\Mcl\CMclMutex.h"\
+	".\Mcl\CMclWaitableObject.h"\
+	
+
+.\Mcl\CMclSemaphore.cpp : \
+	".\Mcl\CMclGlobal.h"\
+	".\Mcl\CMclKernel.h"\
+	".\Mcl\CMclSemaphore.h"\
+	".\Mcl\CMclWaitableObject.h"\
+	
+
+.\Mcl\CMclSharedMemory.cpp : \
+	".\Mcl\CMclGlobal.h"\
+	".\Mcl\CMclSharedMemory.h"\
+	
+
+.\Mcl\CMclThread.cpp : \
+	".\Mcl\CMclGlobal.h"\
+	".\Mcl\CMclKernel.h"\
+	".\Mcl\CMclThread.h"\
+	".\Mcl\CMclWaitableObject.h"\
+	
+
+.\Mcl\CMclWaitableCollection.cpp : \
+	".\Mcl\CMclEvent.h"\
+	".\Mcl\CMclGlobal.h"\
+	".\Mcl\CMclKernel.h"\
+	".\Mcl\CMclWaitableCollection.h"\
+	".\Mcl\CMclWaitableObject.h"\
+	
+
+.\expchantest.c : \
+	"..\generic\exp.h"\
+	"..\generic\expDecls.h"\
+	"..\generic\expInt.h"\
+	"..\generic\expIntDecls.h"\
+	"..\generic\expIntPlatDecls.h"\
+	"..\generic\expPlatDecls.h"\
+	"..\generic\expPort.h"\
+	".\expWinErr.h"\
+	".\expWinPort.h"\
+	
+
+.\expect.rc : \
+	"..\generic\exp.h"\
+	"..\generic\expDecls.h"\
+	"..\generic\expPlatDecls.h"\
+	".\expWinErr.rc"\
+	".\MSG00409.bin"\
+	
+
+.\expWinConsoleDebugger.cpp : \
+	"..\generic\exp.h"\
+	"..\generic\expDecls.h"\
+	"..\generic\expInt.h"\
+	"..\generic\expIntDecls.h"\
+	"..\generic\expIntPlatDecls.h"\
+	"..\generic\expPlatDecls.h"\
+	"..\generic\expPort.h"\
+	".\config.hpp"\
+	".\expWinConsoleDebugger.hpp"\
+	".\expWinErr.h"\
+	".\expWinInjectorIPC.hpp"\
+	".\expWinMessage.hpp"\
+	".\expWinPort.h"\
+	".\Mcl\CMcl.h"\
+	".\Mcl\CMclAutoLock.h"\
+	".\Mcl\CMclAutoPtr.h"\
+	".\Mcl\CMclCritSec.h"\
+	".\Mcl\CMclEvent.h"\
+	".\Mcl\CMclGlobal.h"\
+	".\Mcl\CMclKernel.h"\
+	".\Mcl\CMclLinkedLists.h"\
+	".\Mcl\CMclMailbox.h"\
+	".\Mcl\CMclMonitor.h"\
+	".\Mcl\CMclMutex.h"\
+	".\Mcl\CMclSemaphore.h"\
+	".\Mcl\CMclSharedMemory.h"\
+	".\Mcl\CMclThread.h"\
+	".\Mcl\CMclWaitableCollection.h"\
+	".\Mcl\CMclWaitableObject.h"\
+	".\TclHash.hpp"\
+	
+
+.\expWinConsoleDebuggerBreakPoints.cpp : \
+	"..\generic\exp.h"\
+	"..\generic\expDecls.h"\
+	"..\generic\expInt.h"\
+	"..\generic\expIntDecls.h"\
+	"..\generic\expIntPlatDecls.h"\
+	"..\generic\expPlatDecls.h"\
+	"..\generic\expPort.h"\
+	".\config.hpp"\
+	".\expWinConsoleDebugger.hpp"\
+	".\expWinErr.h"\
+	".\expWinInjectorIPC.hpp"\
+	".\expWinMessage.hpp"\
+	".\expWinPort.h"\
+	".\Mcl\CMcl.h"\
+	".\Mcl\CMclAutoLock.h"\
+	".\Mcl\CMclAutoPtr.h"\
+	".\Mcl\CMclCritSec.h"\
+	".\Mcl\CMclEvent.h"\
+	".\Mcl\CMclGlobal.h"\
+	".\Mcl\CMclKernel.h"\
+	".\Mcl\CMclLinkedLists.h"\
+	".\Mcl\CMclMailbox.h"\
+	".\Mcl\CMclMonitor.h"\
+	".\Mcl\CMclMutex.h"\
+	".\Mcl\CMclSemaphore.h"\
+	".\Mcl\CMclSharedMemory.h"\
+	".\Mcl\CMclThread.h"\
+	".\Mcl\CMclWaitableCollection.h"\
+	".\Mcl\CMclWaitableObject.h"\
+	".\TclHash.hpp"\
+	
+
+!IF  "$(CFG)" == "expchantest - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "expchantest - Win32 Debug"
+
+!ENDIF 
+
+.\expWinInit.c : \
+	"..\generic\exp.h"\
+	"..\generic\expDecls.h"\
+	"..\generic\expInt.h"\
+	"..\generic\expIntDecls.h"\
+	"..\generic\expIntPlatDecls.h"\
+	"..\generic\expPlatDecls.h"\
+	"..\generic\expPort.h"\
+	".\expWinErr.h"\
+	".\expWinPort.h"\
+	
+
+.\expWinMessage.cpp : \
+	".\expWinMessage.hpp"\
+	
+
+.\expWinSpawnChan.cpp : \
+	"..\generic\exp.h"\
+	"..\generic\expDecls.h"\
+	"..\generic\expInt.h"\
+	"..\generic\expIntDecls.h"\
+	"..\generic\expIntPlatDecls.h"\
+	"..\generic\expPlatDecls.h"\
+	"..\generic\expPort.h"\
+	".\config.hpp"\
+	".\expWinConsoleDebugger.hpp"\
+	".\expWinErr.h"\
+	".\expWinInjectorIPC.hpp"\
+	".\expWinMessage.hpp"\
+	".\expWinPort.h"\
+	".\Mcl\CMcl.h"\
+	".\Mcl\CMclAutoLock.h"\
+	".\Mcl\CMclAutoPtr.h"\
+	".\Mcl\CMclCritSec.h"\
+	".\Mcl\CMclEvent.h"\
+	".\Mcl\CMclGlobal.h"\
+	".\Mcl\CMclKernel.h"\
+	".\Mcl\CMclLinkedLists.h"\
+	".\Mcl\CMclMailbox.h"\
+	".\Mcl\CMclMonitor.h"\
+	".\Mcl\CMclMutex.h"\
+	".\Mcl\CMclSemaphore.h"\
+	".\Mcl\CMclSharedMemory.h"\
+	".\Mcl\CMclThread.h"\
+	".\Mcl\CMclWaitableCollection.h"\
+	".\Mcl\CMclWaitableObject.h"\
+	".\TclHash.hpp"\
+	
+
+.\expWinUtils.cpp : \
+	"..\generic\exp.h"\
+	"..\generic\expDecls.h"\
+	"..\generic\expInt.h"\
+	"..\generic\expIntDecls.h"\
+	"..\generic\expIntPlatDecls.h"\
+	"..\generic\expPlatDecls.h"\
+	"..\generic\expPort.h"\
+	".\expWinErr.h"\
+	".\expWinPort.h"\
+	

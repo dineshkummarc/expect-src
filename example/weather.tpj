@@ -1,0 +1,33 @@
+format  {TclDevKit Project File}
+fmtver  2.0
+fmttool {TclDevKit TclApp} 3.0
+
+##  Saved at : Fri Nov 21 6:04:20 PM Pacific Standard Time 2003
+##  By       : daveg@haleakala
+
+########
+#####
+###
+##
+#
+
+App/Code               {}
+App/Package            {}
+Package                cmdline
+Path                   {File weather.tcl}
+Path                   Startup
+System/TempDir         {}
+System/Verbose         1
+Wrap/Compile/NoTbcload 0
+Wrap/Compile/Tcl       0
+Wrap/FSMode            {}
+Wrap/InputPrefix       D:/Tcl/bin/base-expect-win32-ix86.exe
+Wrap/Merge             0
+Wrap/NoSpecials        0
+Wrap/Output            weather.exe
+
+#
+##
+###
+#####
+########
